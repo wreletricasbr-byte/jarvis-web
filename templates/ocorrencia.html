@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Ocorrência</title>
+</head>
+<body>
+    <h2>Registro de Ocorrência</h2>
+
+    <form method="POST">
+        <input name="cliente" placeholder="Nome do cliente" required><br><br>
+        <input name="telefone" placeholder="WhatsApp" required><br><br>
+        <input name="local" placeholder="Local / Unidade" required><br><br>
+
+        <select name="tipo">
+            <option>Elétrica</option>
+            <option>Hidráulica</option>
+            <option>Ar Condicionado</option>
+        </select><br><br>
+
+        <select name="urgencia">
+            <option>Baixa</option>
+            <option>Média</option>
+            <option>Alta</option>
+        </select><br><br>
+
+        <textarea name="descricao" placeholder="Descreva o problema" required></textarea><br><br>
+
+        <button type="submit">Enviar Ocorrência</button>
+    </form>
+</body>
+</html>
