@@ -1,5 +1,7 @@
 flask
-pandas
-openpyxl
-requests
 gunicorn
+psycopg2-binary
+sqlalchemy
+pandas
+pywhatkit
+openpyxl
