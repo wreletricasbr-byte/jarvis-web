@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel de Ocorrências - JARVIS</title>
+    <style>
+        body { font-family: Arial; background:#111; color:white; }
+        table { width:100%; border-collapse: collapse; }
+        th, td { border:1px solid #333; padding:8px; }
+        th { background:#222; }
+        tr:nth-child(even) { background:#1a1a1a; }
+    </style>
+</head>
+<body>
+    <h2>📊 Painel de Ocorrências</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>Telefone</th>
+            <th>Local</th>
+            <th>Tipo</th>
+            <th>Urgência</th>
+            <th>Descrição</th>
+        </tr>
+
+        {% for o in ocorrencias %}
+        <tr>
+            <td>{{ o.id }}</td>
+            <td>{{ o.data }}</td>
+            <td>{{ o.cliente }}</td>
+            <td>{{ o.telefone }}</td>
+            <td>{{ o.local }}</td>
+            <td>{{ o.tipo }}</td>
+            <td>{{ o.urgencia }}</td>
+            <td>{{ o.descricao }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
