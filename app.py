@@ -1,6 +1,5 @@
 import os
 import time
-import pywhatkit as kit
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 from models import db, Ocorrencia
@@ -47,8 +46,9 @@ def ocorrencia():
 
         # ENVIO WHATSAPP (apenas local)
         if os.environ.get("RENDER") is None:
-            kit.sendwhatmsg_instantly(NUMERO_WHATSAPP, mensagem, 20, True)
-            time.sleep(5)
+         print("Mensagem pronta para envio:")
+print(mensagem)
+
 
         return redirect("/")
 
