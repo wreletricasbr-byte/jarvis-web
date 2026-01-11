@@ -1,7 +1,27 @@
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 import os
 
+# cria o app primeiro
+app = Flask(__name__)
+
+# pega a URL do banco do Render
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
+# corrige postgres do Render
+if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+# configura o banco
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+# inicia o banco
+db = SQLAlchemy()
+
+app = Flask(__name__)
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
 if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
