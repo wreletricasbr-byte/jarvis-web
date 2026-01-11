@@ -1,5 +1,8 @@
 flask
+gunicorn
+psycopg2-binary
+sqlalchemy
+flask_sqlalchemy
+pywhatkit
 pandas
 openpyxl
-requests
-gunicorn

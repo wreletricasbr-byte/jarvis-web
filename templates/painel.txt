@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Painel JARVIS</title>
+    <title>Painel - Ocorrências</title>
     <style>
-        body { font-family: Arial; background:#111; color:#eee; padding:20px; }
-        table { width:100%; border-collapse: collapse; }
-        th, td { border:1px solid #444; padding:8px; }
-        th { background:#222; }
-        tr:nth-child(even){ background:#1c1c1c; }
+        body { font-family: Arial; background:#f2f2f2; padding:20px }
+        table { width:100%; border-collapse: collapse; background:white }
+        th, td { padding:10px; border:1px solid #ccc; text-align:left }
+        th { background:#222; color:white }
     </style>
 </head>
 <body>
 
-<h1>?? JARVIS – Painel de Ocorrências</h1>
+<h2>?? Ocorrências Registradas</h2>
 
 <table>
-    <tr>
-        <th>Data</th>
-        <th>Cliente</th>
-        <th>Telefone</th>
-        <th>Local</th>
-        <th>Tipo</th>
-        <th>Urgência</th>
-        <th>Descrição</th>
-    </tr>
+<tr>
+    <th>Data</th>
+    <th>Cliente</th>
+    <th>Telefone</th>
+    <th>Local</th>
+    <th>Tipo</th>
+    <th>Urgência</th>
+    <th>Descrição</th>
+</tr>
 
-    {% for o in ocorrencias %}
-    <tr>
-        <td>{{ o.data }}</td>
-        <td>{{ o.cliente }}</td>
-        <td>{{ o.telefone }}</td>
-        <td>{{ o.local }}</td>
-        <td>{{ o.tipo }}</td>
-        <td>{{ o.urgencia }}</td>
-        <td>{{ o.descricao }}</td>
-    </tr>
-    {% endfor %}
+{% for o in ocorrencias %}
+<tr>
+    <td>{{ o.data }}</td>
+    <td>{{ o.cliente }}</td>
+    <td>{{ o.telefone }}</td>
+    <td>{{ o.local }}</td>
+    <td>{{ o.tipo }}</td>
+    <td>{{ o.urgencia }}</td>
+    <td>{{ o.descricao }}</td>
+</tr>
+{% endfor %}
+
 </table>
 
 </body>

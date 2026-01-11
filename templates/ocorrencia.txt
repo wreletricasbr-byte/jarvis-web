@@ -1,32 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Registrar Ocorrência</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #020617;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #020617;
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            background: #1e293b;
+            color: white;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #38bdf8;
+            color: #020617;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
-    <h2>Registro de Ocorrência</h2>
+
+<div class="container">
+    <h1>?? Nova Ocorrência</h1>
 
     <form method="POST">
-        <input name="cliente" placeholder="Nome do cliente" required><br><br>
-        <input name="telefone" placeholder="WhatsApp" required><br><br>
-        <input name="local" placeholder="Local / Unidade" required><br><br>
 
-        <select name="tipo">
+        <label>Cliente</label>
+        <input type="text" name="cliente" required>
+
+        <label>Telefone</label>
+        <input type="text" name="telefone" required>
+
+        <label>Local</label>
+        <input type="text" name="local" required>
+
+        <label>Tipo de serviço</label>
+        <select name="tipo" required>
+            <option value="">Selecione</option>
             <option>Elétrica</option>
             <option>Hidráulica</option>
-            <option>Ar Condicionado</option>
-        </select><br><br>
+            <option>Ar-condicionado</option>
+            <option>Manutenção Geral</option>
+        </select>
 
-        <select name="urgencia">
+        <label>Urgência</label>
+        <select name="urgencia" required>
+            <option value="">Selecione</option>
             <option>Baixa</option>
             <option>Média</option>
             <option>Alta</option>
-        </select><br><br>
+            <option>Crítica</option>
+        </select>
 
-        <textarea name="descricao" placeholder="Descreva o problema" required></textarea><br><br>
+        <label>Descrição do problema</label>
+        <textarea name="descricao" required></textarea>
 
-        <button type="submit">Enviar Ocorrência</button>
+        <button type="submit">?? Enviar Ocorrência</button>
+
     </form>
+
+    <div class="footer">
+        Sistema JARVIS • WR Elétricas
+    </div>
+</div>
+
 </body>
 </html>

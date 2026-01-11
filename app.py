@@ -18,6 +18,7 @@ with app.app_context():
 
 NUMERO_WHATSAPP = "+5561992686413"
 
+# ---------------- FORMULÁRIO ----------------
 @app.route("/", methods=["GET", "POST"])
 def ocorrencia():
     if request.method == "POST":
@@ -44,14 +45,22 @@ def ocorrencia():
             f"📝 {o.descricao}"
         )
 
-        kit.sendwhatmsg_instantly(NUMERO_WHATSAPP, mensagem, 20, True)
-        time.sleep(5)
+        # ENVIO WHATSAPP (apenas local)
+        if os.environ.get("RENDER") is None:
+            kit.sendwhatmsg_instantly(NUMERO_WHATSAPP, mensagem, 20, True)
+            time.sleep(5)
 
         return redirect("/")
 
     return render_template("ocorrencia.html")
+
+
+# ---------------- PAINEL ----------------
 @app.route("/painel")
 def painel():
     ocorrencias = Ocorrencia.query.order_by(Ocorrencia.id.desc()).all()
     return render_template("painel.html", ocorrencias=ocorrencias)
 
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
